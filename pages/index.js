@@ -1,5 +1,5 @@
 export default function Home() {
   return (
-    <p>page content populating main tag in layout</p>
+    <div>{new Array(100).fill('').map((box, index) => <p key={index}>{index}</p>)}</div>
   )
 }
