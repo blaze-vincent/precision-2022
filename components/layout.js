@@ -12,7 +12,9 @@ export default function Layout({children}){
 
     <Header />
 
-    <main>{children}</main>
+    <main
+      className="max-w-screen-xl m-auto"
+    >{children}</main>
 
     <Footer />
     </>)
