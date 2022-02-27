@@ -33,12 +33,12 @@ export default function Header(){
     className="bg-brand_purple-100 flex items-center justify-center"
   >
     <div
-      className={`w-full ${offscreen && 'fixed -top-24 transition-transform'} ${animateOnscreen && 'translate-y-24'} bg-brand_purple-100 py-2 px-4 border-brand_purple-500 shadow-sm shadow-brand_purple-100 border-solid border-b-2`}
+      className={`w-full ${offscreen && 'fixed -top-24 transition-transform'} ${animateOnscreen && 'translate-y-24'} bg-muted_white-100 py-2 px-4 shadow-sm shadow-brand_purple-100`}
     >
       <div
         className="w-full max-w-screen-xl flex flex-row m-auto gap-2 items-end justify-between"
       >
-        <Image src='/images/precision.png' width={offscreen && 100 || 300} height={offscreen && 50 || 150} alt='' layout='intrinsic' />
+        <Image src='/images/precision.png' width={offscreen && 100 || 200} height={offscreen && 50 || 100} alt='' layout='intrinsic' />
         <Nav collapsed={offscreen} />
       </div>
     </div>
