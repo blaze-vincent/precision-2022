@@ -2,7 +2,7 @@ export default function PillButton({styles = [], className = '', children}){
 
   const defaultStyle = 'rounded-full h-max w-max max-w-full px-2 py-px font-["Montserrat"] font-semibold transition-colors ';
   const stylePresets = {
-    'large': 'text-4xl px-4',
+    'large': 'text-3xl px-5',
     'med': 'text-2xl px-2',
     'border': 'border-solid border-2',
     'nav': 'border-brand_purple-600 bg-muted_white-100 text-brand_purple-600 hover:text-muted_white-100 hover:bg-brand_purple-600',

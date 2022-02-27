@@ -1,5 +1,5 @@
 import Head from "next/head"
-import Header from './header'
+import Header from './header/header'
 import Footer from './footer'
 
 export default function Layout({children}){
@@ -13,7 +13,7 @@ export default function Layout({children}){
     <Header />
 
     <main
-      className="max-w-screen-xl m-auto"
+      className="max-w-screen-xl m-auto p-4"
     >{children}</main>
 
     <Footer />
