@@ -37,7 +37,7 @@ export default function Hero(){
         </p>
         <Link href='/about'>
           <a
-            className="font-['Lora'] font-semibold underline"
+            className="font-['Lora'] font-semibold underline w-max max-w-full"
           >
             Read more about us
           </a>
