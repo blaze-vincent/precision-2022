@@ -1,5 +1,12 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-export default function handler(req, res) {
-  res.status(200).json({ name: 'John Doe' })
+import connect from "../../db/connect"
+
+export default async function handler(req, res) {
+  try {
+    await connect();
+    res.status(200).send('it must be working')
+  } catch (error) {
+    res.status(500).error(error)
+  }
 }
