@@ -35,5 +35,5 @@ yarn-error.log*
 .vercel
 
 #mongo
-/mongo-volume/
+/mongo-volume/*
 !/mongo-volume/.gitkeep
