@@ -1,6 +1,5 @@
+<h1>Precision Coatings Website Redesign 2022</h1>
 <article>
-  <h1>Precision Coatings Website Redesign 2022</h1>
-
   <h2>Why I'm Making This</h2>
   <ul>
     <li>
@@ -19,5 +18,34 @@
     <b>I know more about semantic markup now</b>
     </li>
   </ul>
-
+</article>
+<article>
+  <h2>How to get it running</h2>
+  <aside>
+    <p>
+      These instructions are a work-in-progress. They may be incomplete.
+    </p>
+  </aside>
+  <ol>
+    <li>
+      <p>
+        Change the api user credentials defined in <code>docker-entrypoint-initdb.d > init-mongo.js</code>. 
+      </p>
+    </li>
+    <li>
+      <p>
+        Start the Mongo database with <code>docker-compose up</code>.
+      </p>
+    </li>
+    <li>
+      <p>
+        Run <code>npm install</code>, then <code>npm run build</code>.
+      </p>
+    </li>
+    <li>
+      <p>
+        Finally, run <code>npm run start</code>
+      </p>
+    </li>
+  </ol>
 </article>
