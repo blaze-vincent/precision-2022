@@ -1,10 +1,11 @@
 
 import mongoose from 'mongoose'
 
-const MONGODB_URI = process.env.MONGODB_URI
-if (!MONGODB_URI) {
+const MONGODB_API_URI = process.env.MONGODB_API_URI
+
+if (!MONGODB_API_URI) {
   throw new Error(
-    'missing MONGODB_URI environment variable'
+    'missing MONGODB_API_URI environment variable'
   )
 }
 
@@ -19,12 +20,7 @@ export default async function dbConnect() {
   }
 
   if (!cached.promise) {
-    const opts = {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-
-    cached.promise = mongoose.connect(MONGODB_URI, opts).then(mongoose => {
+    cached.promise = mongoose.connect(MONGODB_API_URI).then(mongoose => {
       return mongoose
     })
   }
