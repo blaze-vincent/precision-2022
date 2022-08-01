@@ -34,6 +34,28 @@
     </li>
     <li>
       <p>
+        Update .env with the the following information:
+      </p>
+      <ul>
+        <li>
+          <p>
+            Api user credentials for Mongo connection: MONGODB_API_URI
+          </p>
+        </li>
+        <li>
+          <p>
+            Secret for signing session cookies: SESSION_SECRET
+          </p>
+        </li>
+        <li>
+          <p>
+            Secret for account passwords
+          </p>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <p>
         Start the Mongo database with <code>docker-compose up</code>.
       </p>
     </li>
