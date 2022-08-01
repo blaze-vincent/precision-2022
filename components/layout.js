@@ -13,8 +13,10 @@ export default function Layout({children}){
     <Header />
 
     <main
-      className="p-4 pt-20"
-    >{children}</main>
+      className=""
+    >
+      {children}
+    </main>
 
     <Footer />
     </>)
