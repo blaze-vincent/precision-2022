@@ -1,17 +1,17 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-import mongoConnect from "../../db/connect"
-import Test from "../../db/models/test";
+import Account from '../../db/models/account'
 
-export default async function handler(req, res) {
-  try {
-    await mongoConnect();
+import nextConnect from "../../middleware/nextConnect"
 
-    await Test.create({name: 'first', email: 'something2@test.com'})
+const handler = nextConnect()
+.get(async (req, res) => {
+  req.session.isAuth = true;
+  const data = await Account.find()
+  res.status(200).json({
+    session: req.session,
+    data
+  });
+})
 
-    const data = await Test.find()
-    res.status(200).json({data});
-  } catch (error) {
-    res.status(500).json({error})
-  }
-}
+export default handler;
