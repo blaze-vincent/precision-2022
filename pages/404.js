@@ -2,11 +2,11 @@ import Head from 'next/head'
 
 export default function FourOhFour(){
   return <div
-    className="flex h-screen w-full justify-center items-center"
+    className="flex w-full justify-center items-center"
   >
     <Head>
-      <title>404</title>
+      <title>Precision Coatings | 404</title>
     </Head>
-    the requested page doesn't exist
+    <p>Sorry, the page you are looking for does not exist.</p>
   </div>
 }
