@@ -1,10 +1,18 @@
 import nextConnect from "../../middleware/nextConnect";
 import bcrypt from 'bcryptjs'
 import Account from '../../db/models/account'
+import multer from 'multer'
+
+const upload = multer()
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+}
 
 //todo: enforce superadmin privileges
 const handler = nextConnect()
-.post(async (req, res) => {
+.post(upload.none(), async (req, res) => {
   const {
     username,
     password
