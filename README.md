@@ -39,7 +39,7 @@
       <ul>
         <li>
           <p>
-            Api user credentials for Mongo connection: MONGODB_API_URI
+            Api user credentials for Mongo connection: MONGODB_API_URI (ex. mongodb://api_user:api1234@localhost:27017/api)
           </p>
         </li>
         <li>
