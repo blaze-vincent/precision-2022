@@ -10,7 +10,7 @@ export default function Layout({children}){
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <Header />
+    {/* <Header /> */}
 
     <main
       className="min-h-[70rem] max-w-screen-2xl m-auto "
@@ -18,6 +18,6 @@ export default function Layout({children}){
       {children}
     </main>
 
-    <Footer />
+    {/* <Footer /> */}
     </>)
 }
