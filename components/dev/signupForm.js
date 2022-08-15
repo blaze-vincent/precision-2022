@@ -1,8 +1,8 @@
-import Input from "../components/input";
+import Input from '../input'
 import { useState } from 'react';
-import Error from "../components/error";
+import Error from "../error";
 
-export default function Signup(){
+export default function SignupForm(){
 
   const [error, setError] = useState(null)
 
@@ -13,22 +13,17 @@ export default function Signup(){
     onSubmit={e => {
       e.preventDefault();
 
-      const responsesObj = {}
-
-      Array.from(document.getElementById('signup-form').elements)
+      const body = new FormData();
+      Array.from(e.target.elements)
       .filter(el => el.name)
       .forEach(el => {
-        responsesObj[el.name] = el.value
+        body.append(el.name, el.value);
       })
 
       fetch('/api/signup', {
         credentials: 'include',
         method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(responsesObj)
+        body
       }).then(async res => {
         const json = await res.json()
         if(json.error){
@@ -37,6 +32,7 @@ export default function Signup(){
           if(error){
             setError(null);
           }
+          
         }
       })
     }}
