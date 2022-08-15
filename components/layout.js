@@ -13,7 +13,7 @@ export default function Layout({children}){
     <Header />
 
     <main
-      className=""
+      className="min-h-[70rem] max-w-screen-2xl m-auto "
     >
       {children}
     </main>
