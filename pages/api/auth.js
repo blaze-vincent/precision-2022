@@ -1,9 +1,17 @@
 import nextConnect from "../../middleware/nextConnect";
 import Account from '../../db/models/account'
 import bcrypt from 'bcryptjs'
+import multer from 'multer'
+
+const upload = multer()
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+}
 
 const handler = nextConnect()
-.post(async (req, res) => {
+.post(upload.none(), async (req, res) => {
   const {
     username,
     password
