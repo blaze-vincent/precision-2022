@@ -37,3 +37,6 @@ yarn-error.log*
 #mongo
 /mongo-volume/*
 !/mongo-volume/.gitkeep
+
+/public/uploads/*
+!/public/uploads/.gitkeep
