@@ -1,17 +1,18 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-
-import Account from '../../db/models/account'
-
 import nextConnect from "../../middleware/nextConnect"
 
+import multer from 'multer'
+
+const upload = multer()
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+}
+
 const handler = nextConnect()
-.get(async (req, res) => {
-  req.session.isAuth = true;
-  const data = await Account.find()
-  res.status(200).json({
-    session: req.session,
-    data
-  });
+.post(upload.none(), (req, res) => {
+  res.status(200).json({"test": "success"})
 })
 
 export default handler;
