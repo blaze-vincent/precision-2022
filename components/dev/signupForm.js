@@ -1,11 +1,12 @@
-import Input from '../input'
-import Form from '../form';
+import Input from '../form/input'
+import Form from '../form/form';
 
-export default function SignupForm(){
+export default function SignupForm({debug}){
 
   return <Form 
     method='POST'
     apiRoute='signup'  
+    debug={debug}
   >
     <Input 
       name="username" 
