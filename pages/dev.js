@@ -1,5 +1,6 @@
 import SignupForm from '../components/dev/signupForm';
 import AuthForm from '../components/dev/authForm';
+import PostForm from '../components/dev/postForm';
 
 function Section({children}){
   return <div
@@ -23,6 +24,11 @@ export default function Dev(){
     <Section>
       <h2>auth</h2>
       <AuthForm />
+    </Section>
+
+    <Section>
+      <h2>post</h2>
+      <PostForm debug />
     </Section>
 
   </div>
