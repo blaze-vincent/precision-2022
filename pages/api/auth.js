@@ -30,6 +30,8 @@ const handler = nextConnect()
   }
 
   req.session.authenticated = true;
+  req.session.uid = account._id;
+
   return res.status(200).json({id: account._id});
 
 })
