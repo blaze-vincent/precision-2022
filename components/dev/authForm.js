@@ -1,5 +1,5 @@
-import Input from '../input'
-import Form from '../form';
+import Input from '../form/input'
+import Form from '../form/form';
 
 export default function AuthForm(){
 
