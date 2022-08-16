@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Error from "./error";
 import Success from './success'
 
-export default function Form({children, method = 'POST', apiRoute}){
+export default function Form({children, method = 'POST', apiRoute, debug}){
 
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
@@ -14,10 +14,15 @@ export default function Form({children, method = 'POST', apiRoute}){
     onSubmit={e => {
       e.preventDefault();
 
+      const body = new FormData(e.target);
+      if(debug){
+        console.log(body);
+      }
+
       fetch('/api/' + apiRoute, {
         credentials: 'include',
         method,
-        body: new FormData(e.target)
+        body
       }).then(async res => {
         const json = await res.json()
         if(json.error){

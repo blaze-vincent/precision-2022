@@ -1,18 +1,8 @@
-import { useState, useEffect } from 'react'
-
 export default function Input({
   type = "text",
   name,
   labelText,
-  valueSetter
 }){
-
-  const [val, setVal] = useState(null);
-  useEffect(_ => {
-    if(valueSetter){
-      valueSetter(val);
-    }
-  }, [val])
 
   return <>
     <label htmlFor={name}>{
@@ -21,7 +11,6 @@ export default function Input({
     <input 
       type={type}
       name={name}
-      onChange={e => { setVal(e.target.value) }}
       className="border border-brand_purple-100"
     ></input>
   </>
