@@ -1,16 +1,7 @@
 import { Schema, model, models } from 'mongoose';
 
 const PostSchema = new Schema({
-  username: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  isSuperAdmin: {
-    type: Boolean,
-    default: false
-  },
-  passwordHash: {
+  textContent: {
     type: String,
     required: true
   },
