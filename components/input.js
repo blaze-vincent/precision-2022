@@ -22,6 +22,7 @@ export default function Input({
       type={type}
       name={name}
       onChange={e => { setVal(e.target.value) }}
+      className="border border-brand_purple-100"
     ></input>
   </>
 }
