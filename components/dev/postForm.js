@@ -27,8 +27,8 @@ export default function PostForm({debug}){
       }}
     />
 
-    {imageUploads.map(file => {
-      return <div>
+    {imageUploads.map((file, index) => {
+      return <div key={index}>
         <img src={URL.createObjectURL(file)} />
         <TextArea name={"description-" + file.name} labelText="Image description (optional):" />
       </div>
