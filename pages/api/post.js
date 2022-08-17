@@ -2,6 +2,9 @@ import nextConnect from "../../middleware/nextConnect";
 import requireAuthentication from "../../middleware/requireAuthentication";
 import multer from "multer";
 import path from "path";
+import Image from '../../db/models/image'
+import Post from '../../db/models/post'
+import ImagePostAssociation from '../../db/models/imagePostAssociation'
 
 const storage = multer.diskStorage({
   destination: path.join(__dirname, "../../../../public/uploads"),
@@ -34,7 +37,7 @@ export const config = {
 
 const handler = new nextConnect()
 .use(requireAuthentication)
-.post(upload.array('image'), (req, res) => {
+.post(upload.array('image'), async (req, res) => {
   if(req.failedFiles){
     return res
       .status(415)
@@ -43,6 +46,25 @@ const handler = new nextConnect()
           req.failedFiles.join(', ')
         }. Accepted file formats are .png, .jpg, and .jpeg.`
       })
+  }
+
+  const {textContent} = req.body; 
+
+  const post = await Post.create({
+    textContent,
+    f_accountId: req.session.uid
+  });
+
+  for(let image of req.files){
+    const dbImage = await Image.create({
+      resourceURL: image.filename,
+      f_accountId: req.session.uid,
+    })
+
+    const ipa = await ImagePostAssociation.create({
+      f_postId: post._id,
+      f_imageId: dbImage._id
+    })
   }
 
   //create database objects
