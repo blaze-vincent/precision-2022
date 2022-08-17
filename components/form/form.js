@@ -9,7 +9,7 @@ export default function Form({children, method = 'POST', apiRoute, debug}){
 
   return <form
 
-    className='flex flex-col'
+    className='flex flex-col gap-2'
 
     onSubmit={e => {
       e.preventDefault();
