@@ -1,11 +1,11 @@
-import Input from '../form/input'
-import Form from '../form/form';
+import Input from '../../form/input'
+import Form from '../../form/form';
 
-export default function SignupForm({debug}){
+export default function AuthForm({debug}){
 
   return <Form 
     method='POST'
-    apiRoute='signup'  
+    apiRoute='auth'
     debug={debug}
   >
     <Input 

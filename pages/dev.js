@@ -1,6 +1,6 @@
-import SignupForm from '../components/dev/signupForm';
-import AuthForm from '../components/dev/authForm';
-import PostForm from '../components/dev/postForm';
+import SignupForm from '../components/dev/POST/signupForm';
+import AuthForm from '../components/dev/POST/authForm';
+import PostForm from '../components/dev/POST/postForm';
 
 function Section({children}){
   return <div

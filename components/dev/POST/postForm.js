@@ -1,7 +1,6 @@
-import Form from '../form/form';
-import TextArea from '../form/textarea';
-import ImageInput from '../form/imageInput';
-import Input from '../form/input';
+import Form from '../../form/form';
+import TextArea from '../../form/textarea';
+import ImageInput from '../../form/imageInput';
 import { useState } from 'react';
 
 export default function PostForm({debug}){

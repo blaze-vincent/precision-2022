@@ -32,9 +32,9 @@ export default function Form({children, method = 'POST', apiRoute, debug}){
             setError(null);
           }
           setSuccess({code: res.status, message: <div>
-            {Object.entries(json).map((entry, index) => {
+            {Object.entries(json).map(([key, value], index) => {
               return <p key={index}>
-                {entry.key}: {entry.value}
+                {key}: {JSON.stringify(value, null, ' ')}
               </p>
             })}
           </div>})
