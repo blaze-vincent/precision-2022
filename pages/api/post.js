@@ -73,7 +73,7 @@ const handler = new nextConnect()
   }
 
   //create database objects
-  return res.status(200).json({message: `Image-post associations ${ipaIds.join(', ')} successfully created.`})
+  return res.status(200).json({ipaIds})
 })
 
 export default handler;
