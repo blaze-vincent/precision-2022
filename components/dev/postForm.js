@@ -5,6 +5,8 @@ import ImageInput from '../form/imageInput';
 
 export default function PostForm({debug}){
 
+  //todo: enable the creation of descriptions for each image
+
   return <Form 
     method='POST'
     apiRoute='post'
