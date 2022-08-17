@@ -55,20 +55,25 @@ const handler = new nextConnect()
     f_accountId: req.session.uid
   });
 
+  const ipaIds = [];
   for(let image of req.files){
+    const description = req.body['description-' + image.originalname];
+
     const dbImage = await Image.create({
       resourceURL: image.filename,
       f_accountId: req.session.uid,
+      description
     })
 
     const ipa = await ImagePostAssociation.create({
       f_postId: post._id,
       f_imageId: dbImage._id
-    })
+    });
+    ipaIds.push(ipa._id);
   }
 
   //create database objects
-  return res.status(200).json({message: "success"})
+  return res.status(200).json({message: `Image-post associations ${ipaIds.join(', ')} successfully created.`})
 })
 
 export default handler;
