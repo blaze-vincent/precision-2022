@@ -7,7 +7,7 @@ export default function TextArea({name, labelText}){
   useEffect(_ => {
     const domEl = inputEl.current
     domEl.style.height = 'inherit';
-    domEl.style.height = `${domEl.scrollHeight}px`;
+    domEl.style.height = `${domEl.scrollHeight + 2}px`;
   }, [value])
 
   return <>
