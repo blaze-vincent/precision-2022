@@ -73,7 +73,7 @@ const handler = new nextConnect()
   }
 
   //create database objects
-  return res.status(200).json({ipaIds})
+  return res.status(201).json({ipaIds})
 })
 
 export default handler;
