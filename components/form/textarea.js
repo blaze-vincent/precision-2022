@@ -11,7 +11,10 @@ export default function TextArea({name, labelText}){
   }, [value])
 
   return <>
-    <label htmlFor={name}>{
+    <label 
+      htmlFor={name}
+      className='text-sm'  
+    >{
       labelText || name.charAt(0).toUpperCase() + name.slice(1)
     }</label>
     <textarea 
@@ -23,7 +26,7 @@ export default function TextArea({name, labelText}){
       style={{
         resize: "none"
       }}
-      className="border border-brand_purple-100"
+      className="border border-brand_purple-100 outline-none p-2"
     />
   </>
 }
