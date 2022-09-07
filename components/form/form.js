@@ -1,15 +1,31 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Error from "./error";
 import Success from './success'
 
-export default function Form({children, method = 'POST', apiRoute, debug}){
+export default function Form({
+  children, 
+  method = 'POST', 
+  apiRoute, 
+  debug, 
+  className, 
+  overrideSubmitButton = false,
+  handleResponse,
+}){
 
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
+  useEffect(_ => {
+    if(!handleResponse){
+      return;
+    }
+    if(error || success){
+      handleResponse(error || success)      
+    }
+  }, [error, success])
 
   return <form
 
-    className='flex flex-col gap-2'
+    className={className || 'flex flex-col gap-2'}
 
     onSubmit={e => {
       e.preventDefault();
@@ -45,13 +61,15 @@ export default function Form({children, method = 'POST', apiRoute, debug}){
 
     {children}
 
-    {error && <Error errorCode={error.code} errorMessage={error.message} /> }
-    {!error && success && <Success successCode={success.code} successMessage={success.message} />}
+    {error && !handleResponse && <Error errorCode={error.code} errorMessage={error.message} /> }
+    {!error && success && !handleResponse && <Success successCode={success.code} successMessage={success.message} />}
 
-    <button 
-      className='bg-brand_purple-100'
-      type="submit"
-    >submit</button>
-
+    {!overrideSubmitButton && 
+      <button 
+        className='bg-brand_purple-100'
+        type="submit"
+      >submit</button>
+    }
+    
   </form>
 }
