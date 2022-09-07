@@ -1,4 +1,3 @@
-
 import mongoose from 'mongoose'
 
 const MONGODB_API_URI = process.env.MONGODB_API_URI
