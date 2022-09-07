@@ -1,11 +1,16 @@
-import Image from 'next/image'
+import Img from './image'
 
-export default function Post({images, description}){
-    return <div>
-        <div>
-            {images.map((imgUrl, index) => {
-                return <Image src={imgUrl} alt='' key={index} />
-            })}
-        </div>
+export default function Post({images, textContent}){
+  return <div>
+    <p>
+      {textContent}
+    </p>
+    <div className='flex flex-col gap-2'>
+      {
+        images.map((image, index) => {
+          return <Img key={index} src={image.url} description={image.description} />
+        })
+      }
     </div>
+  </div>
 }
