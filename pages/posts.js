@@ -1,10 +1,9 @@
 import dbConnect from "../db/connect"
 import Post from '../db/models/post';
+import PostEl from '../components/post'
 import Account from '../db/models/account'
 import Image from '../db/models/image'
 import ImagePostAssociation from '../db/models/imagePostAssociation'
-
-import Img from "../components/image";
 
 import jsonify from "../jsonify";
 
@@ -47,17 +46,22 @@ export async function getServerSideProps(){
 export default function Posts({posts = []}){
 
   const postElements = posts.map((post, index) => {
-    return <div key={index}>
-      {JSON.stringify(post)}
-      {
-        post.images.map((image, index) => {
-          return <Img key={index} src={image.url} description={image.description} />
-        })
-      }
-    </div>
+    return <PostEl 
+      key={index}
+      images={post.images} 
+      textContent={post.textContent}
+    />
   })
 
-  return <div>
-    {postElements.length && postElements || 'Posts could not be loaded.'}
+  return <div
+    className="p-4"
+  >
+  
+    <h1 className="text-xl font-semibold">Posts</h1>
+
+    <div className="flex flex-col gap-4">
+      {postElements.length && postElements || 'Posts could not be loaded.'}
+    </div>
+
   </div>
 }
