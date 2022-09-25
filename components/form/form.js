@@ -47,13 +47,13 @@ export default function Form({
           if(error){
             setError(null);
           }
-          setSuccess({code: res.status, message: <div>
+          setSuccess({code: res.status, message: <>
             {Object.entries(json).map(([key, value], index) => {
               return <p key={index}>
                 {key}: {JSON.stringify(value, null, ' ')}
               </p>
             })}
-          </div>})
+          </>})
         }
       })
     }}
