@@ -4,10 +4,12 @@ import Account from '../db/models/account'
 import Image from '../db/models/image'
 import ImagePostAssociation from '../db/models/imagePostAssociation'
 
-export default async function getPosts(){
+export default async function getPosts(page){
+  const PAGE_SIZE = 10;
+
   await dbConnect();
 
-  const posts = await Post.find({}).then(async posts => {
+  const posts = await Post.find().sort({'createdAt': 'desc'}).limit(PAGE_SIZE).then(async posts => {
     const accountCache = {};
 
     return await Promise.all(posts.map(async post => {
